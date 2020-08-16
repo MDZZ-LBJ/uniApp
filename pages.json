@@ -1,0 +1,56 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+			          "app-plus": {
+			              "titleNView": false //禁用原生导航栏
+			          }
+			   }
+		},
+		{
+			"path": "pages/search/search",
+			"style": {
+				"navigationBarTitleText": "搜索"
+			}
+		},
+		{
+			"path": "pages/me/me",
+			"style": {
+				"navigationBarTitleText": "我的"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "myApp",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar":{
+		"color":"#000",
+		"selectedColor":"#1296db",
+		"borderStyle":"black",
+		"backgroundColor":"#FFFFFF",
+		"list":[
+			{
+				"pagePath":"pages/index/index",
+				"text":"首页",
+				"iconPath":"static/tabBarIcon/index.png",
+				"selectedIconPath":"static/tabBarIcon/indexS.png"
+			},
+			{
+				"pagePath":"pages/search/search",
+				"text":"搜索",
+				"iconPath":"static/tabBarIcon/search.png",
+				"selectedIconPath":"static/tabBarIcon/searchS.png"
+			},
+			{
+				"pagePath":"pages/me/me",
+				"text":"我的",
+				"iconPath":"static/tabBarIcon/me.png",
+				"selectedIconPath":"static/tabBarIcon/meS.png"
+			}
+		]
+	}
+}

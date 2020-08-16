@@ -1,0 +1,1 @@
+<view class="trallerStars"><view class="movie-score-wrapper"><image class="star-ico" src="../static/star.png"></image><view class="movie-score">{{''+innnerScore+''}}</view></view></view>
