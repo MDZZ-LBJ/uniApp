@@ -1,4 +1,5 @@
 {
+  "enablePullDownRefresh": true,
   "usingComponents": {
     "traller-stars": "/commponents/trailerStarts"
   }

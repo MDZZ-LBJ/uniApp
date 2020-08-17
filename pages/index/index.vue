@@ -38,8 +38,8 @@
 		 </view>
 		 
 		 <view class="hot-movies page-block">
-			 <video class="hot-movie-single" src="http://vfx.mtime.cn/Video/2019/02/04/mp4/190204084208765161.mp4"></video>
-			 <video class="hot-movie-single" src="http://vfx.mtime.cn/Video/2019/03/19/mp4/190319212559089721.mp4"></video>
+			 <video class="hot-movie-single" src="http://vfx.mtime.cn/Video/2019/03/09/mp4/190309153658147087.mp4"></video>
+			 <video class="hot-movie-single" src="http://vfx.mtime.cn/Video/2019/03/14/mp4/190314102306987969.mp4"></video>
 		 </view>
 		 
 		 <view class="page-block super-hot">
@@ -52,24 +52,21 @@
 		 </view>
 		 
 		 <view class="page-block guess-u-like">
-			 <view class="single-like-movie">
-				 <image src="../../static/poster.jpeg" class="like-movie"></image>
+			 <view class="single-like-movie" v-for="(item , index) in  guessULikeList" :key='index'>
+				 <image :src="item.src" class="like-movie"></image>
 				 <view class="movie-desc">
 					 <view class="movie-title">
-					 	  chewqe			 
+					 	  {{item.name}}			 
 					 </view>
 					 <trallerStars nnnerScore='4.4'></trallerStars>
 					 <view class="movie-info">
-					 	  chewqe			 
-					 </view>
-					 <view class="movie-info">
-					 	  chewqe			 
+					 	  {{item.desc}}				 
 					 </view>
 				 </view>
-				 <view class="movie-oper" @click="praiseMe" >
+				 <view class="movie-oper"  @click="praiseMe(index)" >
 					 <image src="../../static/good.png" class="praise-ico"></image>
 					 <view class="praise-me">点赞</view>
-					  <view :animation='animationData' class="praise-me animation-opacity">+1</view>
+					 <view :animation='animationDataArr[index]' class="praise-me animation-opacity">+1</view>
 				 </view>
 			 </view>
 		 </view>
@@ -117,21 +114,44 @@
 						score:'9.0分'
 					},
 				],
-				animationData:{}
+				guessULikeList:[
+					{
+						src:'../../static/poster.jpeg',
+						name:'警察故事',
+						desc:'2020-08-13'
+					},
+					{
+						src:'../../static/poster.jpeg',
+						name:'警察故事',
+						desc:'2020-08-13'
+					}
+				],
+				animationData:{},
+				animationDataArr:[
+					{},{}
+				]
 			}
 		},
 	    components:{
 			trallerStars
 		},
 		onLoad() {
-			//创建临时动画对象
+			// #ifdef APP-PLUS || MP-WEIXIN
+			//创建临时动画对象 只编译app和小程序  H5不支持动画api
 			this.animation=uni.createAnimation()
+			// #endif
+			
            // 请求轮播图数据
            this.getSwiper();
 		},
 		onUnload(){
 			//页面卸载的时候清除动画对象
-		   this.animationData={}
+		   this.animationDataArr=[]
+		},
+		onPullDownRefresh(){
+			console.log('下拉刷新')
+			// h5 不会自动关闭刷新
+			setTimeout(()=>uni.stopPullDownRefresh(),500)
 		},
 		methods: {
            getSwiper(){
@@ -149,18 +169,24 @@
 			   				}
 			   		});
 		   }
-		   
 		   ,
 		   // 点赞动画效果 
-		   praiseMe(){
+		   praiseMe(index){
+			   // #ifdef APP-PLUS || MP-WEIXIN 
+			   console.log(index)
+			   // 只编译app和小程序  H5动画api支持不友好
 			   // 构建动画数据 通过step来表示这组动画的完成
 			   this.animation.translateY(-60).opacity(1).step({duration:400})
-			   this.animationData = this.animation.export()
+			   this.animationData = this.animation 
+			   this.animationDataArr[index]=this.animation.export()
 			   // 还原动画
 			   setTimeout(()=>{
 				   this.animation.translateY(0).opacity(0).step({duration:0})
-				   this.animationData = this.animation.export()
+				   this.animationData = this.animation
+				   this.animationDataArr[index]=this.animation.export()
 			   },500)
+			  //this.$forceUpdate(); H5页面不刷新 强制刷新
+			  // #endif
 		   }
 		}
 	}
