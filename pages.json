@@ -22,8 +22,14 @@
 			}
 		}
 	    ,{
-            "path" : "pages/movie/movie",
-            "style" : {}
+            "path" : "pages/detail/detail",
+            "style" : {
+				"app-plus": {
+				    "titleNView": {
+						"type":"transparent" // 导航栏渐变 小程序无效
+					}
+				}
+			}
         }
     ],
 	"globalStyle": {

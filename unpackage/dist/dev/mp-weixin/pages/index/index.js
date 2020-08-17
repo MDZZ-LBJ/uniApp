@@ -293,7 +293,7 @@ var _common = _interopRequireDefault(__webpack_require__(/*! ../../common/common
 //
 //
 //
-var trallerStars = function trallerStars() {return __webpack_require__.e(/*! import() | commponents/trailerStarts */ "commponents/trailerStarts").then(__webpack_require__.bind(null, /*! ../../commponents/trailerStarts.vue */ 32));};var _default = { data: function data() {return { carouselList: [], hotList: [{ src: '../../static/poster.jpeg', name: 'dbiadieqwwwwwwwwwwwwww', score: '9.0分' }, { src: '../../static/poster.jpeg', name: 'dbiadieqwwwwwwwwwwwwww', score: '9.0分' }, { src: '../../static/poster.jpeg', name: 'dbiadieqwwwwwwwwwwwwww', score: '2.0分' }, { src: '../../static/poster.jpeg', name: 'dbiadieqwwwwwwwwwwwwww', score: '4.3分' }, { src: '../../static/poster.jpeg', name: 'dbiadieqwwwwwwwwwwwwww', score: '9.0分' }, { src: '../../static/poster.jpeg', name: 'dbiadieqwwwwwwwwwwwwww', score: '9.0分' }], guessULikeList: [{ src: '../../static/poster.jpeg', name: '警察故事', desc: '2020-08-13' }, { src: '../../static/poster.jpeg', name: '警察故事', desc: '2020-08-13' }], animationData: {}, animationDataArr: [{}, {}] };}, components: { trallerStars: trallerStars }, onLoad: function onLoad() {//创建临时动画对象 只编译app和小程序  H5不支持动画api
+var trallerStars = function trallerStars() {return __webpack_require__.e(/*! import() | commponents/trailerStarts */ "commponents/trailerStarts").then(__webpack_require__.bind(null, /*! ../../commponents/trailerStarts.vue */ 40));};var _default = { data: function data() {return { carouselList: [], hotList: [{ src: '../../static/poster.jpeg', name: 'dbiadieqwwwwwwwwwwwwww', score: '9.0分' }, { src: '../../static/poster.jpeg', name: 'dbiadieqwwwwwwwwwwwwww', score: '9.0分' }, { src: '../../static/poster.jpeg', name: 'dbiadieqwwwwwwwwwwwwww', score: '2.0分' }, { src: '../../static/poster.jpeg', name: 'dbiadieqwwwwwwwwwwwwww', score: '4.3分' }, { src: '../../static/poster.jpeg', name: 'dbiadieqwwwwwwwwwwwwww', score: '9.0分' }, { src: '../../static/poster.jpeg', name: 'dbiadieqwwwwwwwwwwwwww', score: '9.0分' }], guessULikeList: [{ src: '../../static/poster.jpeg', name: '警察故事', desc: '2020-08-13' }, { src: '../../static/poster.jpeg', name: '警察故事', desc: '2020-08-13' }], animationData: {}, animationDataArr: [{}, {}] };}, components: { trallerStars: trallerStars }, onLoad: function onLoad() {//创建临时动画对象 只编译app和小程序  H5不支持动画api
     this.animation = uni.createAnimation(); // 请求轮播图数据
     this.getSwiper();}, onUnload: function onUnload() {//页面卸载的时候清除动画对象
     this.animationDataArr = [];}, onPullDownRefresh: function onPullDownRefresh() {console.log('下拉刷新'); // h5 不会自动关闭刷新
@@ -309,7 +309,6 @@ var trallerStars = function trallerStars() {return __webpack_require__.e(/*! imp
         } });
 
     },
-
     // 点赞动画效果 
     praiseMe: function praiseMe(index) {var _this2 = this;
 

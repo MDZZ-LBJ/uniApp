@@ -168,8 +168,7 @@
 			   			]
 			   				}
 			   		});
-		   }
-		   ,
+		   },
 		   // 点赞动画效果 
 		   praiseMe(index){
 			   // #ifdef APP-PLUS || MP-WEIXIN 

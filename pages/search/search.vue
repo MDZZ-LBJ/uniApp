@@ -8,20 +8,8 @@
 		 </view>
 		 
 		 <view class="movie-list page-block">
-			 <view class="movie-wrapper">
-				  <image class="poster" src="../../static/poster.jpeg"  ></image>
-			 </view>
-			 <view class="movie-wrapper">
-			 	  <image class="poster" src="../../static/poster.jpeg"  ></image>
-			 </view>
-			 <view class="movie-wrapper">
-			 	  <image class="poster" src="../../static/poster.jpeg"  ></image>
-			 </view>
-			 <view class="movie-wrapper">
-			 	  <image class="poster" src="../../static/poster.jpeg"  ></image>
-			 </view>
-			 <view class="movie-wrapper">
-			 		<image class="poster" src="../../static/poster.jpeg"  ></image>
+			 <view class="movie-wrapper" v-for="item in moveList">
+				  <image @click="goDetail(item)"  class="poster" src="../../static/poster.jpeg"  ></image>
 			 </view>
 		 </view>
 	</view>
@@ -31,11 +19,15 @@
 	export default {
 		data() {
 			return {
-				
+				moveList:20
 			}
 		},
 		methods: {
-			
+			goDetail(id){
+				uni.navigateTo({
+					url:`../detail/detail?id=${id}`
+				})
+			}
 		}
 	}
 </script>
